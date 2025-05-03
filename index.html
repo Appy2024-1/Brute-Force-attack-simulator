@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Password Cracker</title>
+    <style>
+        @keyframes pulseRed {
+            0%, 100% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000; }
+            50% { text-shadow: 0 0 20px #ff4d4d, 0 0 30px #ff4d4d; }
+        }
+        @keyframes glowRed {
+            0%, 100% { box-shadow: 0 0 10px #ff0000; }
+            50% { box-shadow: 0 0 20px #ff4d4d; }
+        }
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #8b0000, #ff0000);
+            color: white;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            color: #fff;
+            animation: pulseRed 2s infinite;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 0.5em;
+            color: #ffcccc;
+            text-shadow: 0 0 5px #ff0000;
+        }
+        #passwordInput {
+            width: 300px;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            background: white;
+            color: #8b0000;
+            font-weight: bold;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+            display: block;
+            margin-bottom: 1em;
+            box-shadow: 0 0 10px #ff0000;
+        }
+        #passwordInput:focus {
+            border-color: #ff4d4d;
+            box-shadow: 0 0 20px #ff4d4d;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-left: 10px;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff0000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        button:hover {
+            background-color: #ff4d4d;
+            box-shadow: 0 0 20px #ff4d4d;
+            transform: scale(1.1);
+            animation: flicker 1.5s infinite;
+        }
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background-color: #330000;
+            padding: 15px;
+            height: 300px;
+            overflow-y: scroll;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            color: #ff6666;
+            text-shadow: 0 0 5px #ff0000;
+            animation: glowRed 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Cracker</h1>
+    <label for="passwordInput">Enter password to crack:</label>
+    <input type="text" id="passwordInput" />
+    <button id="startBtn">Start Cracking</button>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
